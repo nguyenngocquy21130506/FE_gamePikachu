@@ -1,0 +1,807 @@
+// 21130506_Nguyễn_Ngọc_Quý_0931089737_DH21DTC
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-image: url('imgPikachu/bgk.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: 'Courier New';
+}
+
+#infBtn {
+  position: absolute;
+  z-index: 2000;
+  background-color: rgb(248, 212, 7);
+  border: none;
+  border-radius: 50%;
+  outline: 8px solid rgb(1, 102, 185);
+  width: 120px;
+  height: 50px;
+  left: 30px;
+  bottom: 50px;
+  font-size: 19px;
+  font-weight: 700;
+  color: rgb(1, 102, 185);
+  box-shadow: -3px 3px 1px 10px rgba(0, 0, 0, 0.6);
+
+  &:hover {
+    cursor: pointer;
+    font-size: 20px;
+    width: 130px;
+    height: 52px;
+    transition: 0.1s all ease-in;
+  }
+}
+
+.opacity_bgk0 {
+  display: none;
+  position: absolute;
+  z-index: 1010;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: 0.3s all ease-in-out;
+
+  .infBoard {
+    background: url("imgPikachu/bgk_guide.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: auto;
+    padding: 20px;
+    padding-top: 30px;
+    border-radius: 15px;
+    width: 500px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+    transition: 0.3s all ease-in-out;
+  }
+
+  .subInfBoard {
+    margin-top: 10px;
+    line-height: 25px;
+  }
+}
+
+#soundButton {
+  position: absolute;
+  z-index: 999;
+  background: none;
+  border: none;
+  right: 0;
+
+  img {
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+  }
+
+  img:hover {
+    cursor: pointer;
+  }
+
+  #volumeIcon.muted {
+    content: url('imgPikachu/volume-off.png');
+  }
+}
+
+
+.interface {
+  width: 100%;
+  height: 100%;
+  background-image: url('imgPikachu/bgk_start4.jpg');
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  z-index: 1000;
+  display: block;
+
+  img {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    visibility: hidden;
+    top: 9px;
+
+    &.firstIcon {
+      left: 17px;
+    }
+
+    &.lastIcon {
+      right: 17px;
+    }
+  }
+
+  button {
+    font-family: Courier;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgb(248, 212, 7);
+    border: none;
+    outline: 8px solid rgb(1, 102, 185);
+    position: absolute;
+    box-shadow: -3px 3px 1px 10px rgba(0, 0, 0, 0.6);
+    left: 25%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    font-weight: 1000;
+    color: rgb(1, 102, 185);
+    z-index: 1001;
+
+    &.btn_start {
+      width: 180px;
+      bottom: 130px;
+
+      &:hover {
+        cursor: pointer;
+        /* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5); */
+        font-size: 32px;
+        width: 200px;
+        height: 55px;
+        transition: 0.2s all ease-in;
+
+        & img {
+          visibility: visible;
+          transition: 0.5s all ease-in;
+        }
+      }
+    }
+
+    &.btn_guide {
+      bottom: 50px;
+      width: 270px;
+
+      &:hover {
+        cursor: pointer;
+        /* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5); */
+        font-size: 32px;
+        width: 290px;
+        height: 55px;
+        transition: 0.2s all ease-in;
+
+        & img {
+          visibility: visible;
+          transition: 0.5s all ease-in;
+        }
+      }
+    }
+
+    //&:hover {
+    //  cursor: pointer;
+    //  /* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5); */
+    //  font-size: 32px;
+    //  width: 210px;
+    //  height: 55px;
+    //  transition: 0.2s all ease-in;
+    //}
+
+    //&:hover img {
+    //  visibility: visible;
+    //  transition: 0.5s all ease-in;
+    //}
+  }
+
+  /* giảm độ mờ của nền */
+  .opacity_bgk {
+    position: absolute;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 1002;
+  }
+}
+
+.opacity_bgk1, .opacity_bgk2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 1002;
+}
+
+/* board guide */
+.board_guide {
+  padding: 20px;
+  display: none;
+  color: black;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+  left: 50%;
+  top: 100px;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 450px;
+  background-image: url('imgPikachu/bgk_guide.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 1003;
+
+  .main_guide {
+    margin-top: 10px;
+
+    img {
+      margin: 10px 15px;
+      width: auto;
+      height: 80px;
+
+      &.mouse {
+        margin: 0;
+        height: 20px;
+      }
+    }
+
+    span {
+      line-height: 25px;
+    }
+  }
+
+  button {
+    position: absolute;
+    font-size: 30px;
+    font-weight: 600;
+    background-color: rgb(248, 212, 7);
+    border: none;
+    color: rgb(1, 102, 185);
+    outline: 6px solid rgb(1, 102, 185);
+    width: 120px;
+    height: 50px;
+    right: -30px;
+    bottom: -25px;
+    border-radius: 10px;
+    z-index: inherit;
+
+    &:hover {
+      cursor: pointer;
+      /* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5); */
+      font-size: 32px;
+      width: 130px;
+      height: 55px;
+      transition: 0.2s all ease-in;
+    }
+  }
+}
+
+/* board pause */
+.board_pause {
+  text-align: center;
+  padding: 50px;
+  display: none;
+  color: black;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+  left: 50%;
+  top: 120px;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 250px;
+  background-image: url('imgPikachu/bgk_guide.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 1003;
+
+  .main_pause {
+    margin-top: 30px;
+
+    i {
+      margin: 10px 50px;
+      font-size: 30px;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+/* board lose */
+.board_lose {
+  text-align: center;
+  padding: 20px;
+  display: none;
+  color: black;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+  left: 50%;
+  top: 120px;
+  transform: translateX(-50%);
+  width: 30%;
+  //height: 250px;
+  background-image: url('imgPikachu/bgk_guide.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 1003;
+
+  .loseScore {
+    padding: 20px 0;
+    font-weight: 800;
+    font-size: 50px;
+    color: white;
+  }
+
+  i {
+    margin: 10px 50px;
+    font-size: 30px;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  display: inline-flex;
+  color: white;
+  position: relative;
+
+  .option {
+    margin-left: 30px;
+  }
+
+  .numHelp, .numReload {
+    position: absolute;
+    top: 22px;
+    width: 25px;
+    height: 25px;
+    background-color: rgba(56, 203, 43, 0.73);
+    border-radius: 50%;
+    line-height: 25px;
+    text-align: center;
+    color: rgb(255, 217, 0);
+    font-weight: 700;
+  }
+
+  .numHelp {
+    left: 180px;
+  }
+
+  .numReload {
+    left: 280px;
+  }
+
+  i {
+    color: white;
+    font-size: 40px;
+    margin: 30px 31px;
+    cursor: pointer;
+    &:hover{
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
+
+  .timeline {
+    background: linear-gradient(to right,
+            hsl(0, 100%, 50%),
+            hsl(30, 100%, 50%),
+            hsl(60, 100%, 50%),
+            hsl(120, 100%, 50%)
+    );
+    width: 450px;
+    height: 40px;
+    border-radius: 20px;
+    margin: auto 0;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+  }
+
+
+  .right_header {
+    position: absolute;
+    display: flex;
+    right: 0;
+    width: 26%;
+    height: 100%;
+
+    span {
+      font-size: 40px;
+      font-weight: 800;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+
+      &.score {
+        left: 44%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+.container {
+  position: relative;
+  /* background-color: red; */
+  width: 80%;
+  height: auto;
+  top: 10px;
+  left: 48.5%;
+  transform: translateX(-50%);
+
+  .board {
+    position: relative;
+    margin: 20px auto;
+    width: 468px;
+    height: 477px;
+    /* border: 2px solid #333; */
+    /* display: grid;
+    grid-template-columns: repeat(10, auto);
+    grid-gap: 1px; */
+    /* background-color: #fff; */
+
+    .line {
+      position: absolute;
+      visibility: hidden;
+      /* width: 5px;
+      height: 5px; */
+      left: 20px;
+      top: 25px;
+      z-index: 9999;
+    }
+  }
+}
+
+.board_level {
+  color: white;
+  position: absolute;
+  right: 60px;
+  bottom: 60px;
+  width: 20%;
+  height: auto;
+  text-align: center;
+
+  .levels {
+    display: grid;
+    grid-template-columns: auto auto;
+
+    button {
+      font-size: 15px;
+      font-weight: 700;
+      width: 120px;
+      height: 30px;
+      background-color: rgba(231, 84, 84, 0.5);
+      color: black;
+      border-radius: 10px;
+      margin-right: 20px;
+      margin-top: 20px;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.board_rule {
+  position: absolute;
+  background-color: rgba(88, 210, 77, 0.5);
+  width: 350px;
+  height: auto;
+  border-radius: 15px;
+  top: 120px;
+  right: 30px;
+  z-index: 1003;
+  padding: 20px;
+}
+
+.imgGuide{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  display: none;
+}
+
+.board_guide_lv4, .board_guide_lv5, .board_guide_lv6 {
+  display: none;
+  position: absolute;
+  background-color: rgba(88, 210, 77, 0.5);
+  width: 300px;
+  height: auto;
+  border-radius: 15px;
+  top: 180px;
+  left: 20px;
+  z-index: 998;
+  padding: 20px;
+  animation: repeat 4s ease-in-out infinite;
+
+  .main_guide {
+    margin-top: 10px;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+
+    span {
+      line-height: 20px;
+
+      b {
+        padding-top: 5px;
+      }
+    }
+  }
+}
+
+@keyframes winL {
+  0% {
+    transform: scale(1) translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) translateY(-40px,) rotate(10deg);
+  }
+  100% {
+    transform: scale(1) translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes winR {
+  0% {
+    transform: scale(1) translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) translateY(-40px) rotate(-10deg);
+  }
+  100% {
+    transform: scale(1) translate(0, 0) rotate(0deg);
+  }
+}
+
+.board_win {
+  display: none;
+  width: 450px;
+  height: 300px;
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  background: url("imgPikachu/bgkWin.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 80px 10px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 800;
+  color: white;
+  z-index: 1005;
+  box-shadow: 0px 0px 100px 100px rgba(255, 217, 0, 0.8);
+
+  i {
+    margin: 40px 40px;
+    font-size: 40px;
+    font-weight: 800;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.5;
+    }
+  }
+
+  img {
+    position: absolute;
+
+    &.top {
+      left: 50%;
+      transform: translateX(-50%);
+      top: -100px;
+    }
+
+    //&.bottom{
+    //  left: 50%;
+    //  transform: translateX(-50%);
+    //  bottom: -20px;
+    //}
+    &.left {
+      width: 300px;
+      top: -20px;
+      left: -280px;
+      animation: winL 3s ease-in-out infinite;
+      transform-origin: top right;
+    }
+
+    &.right {
+      width: 300px;
+      top: -20px;
+      right: -280px;
+      animation: winR 3s ease-in-out infinite;
+      transform-origin: top left;
+    }
+  }
+}
+
+.choosed {
+  background-color: rgba(96, 231, 84, 0.8) !important;
+}
+
+.cell {
+  width: 45px;
+  height: 45px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.2s ease-in-out;
+  position: absolute;
+  border: 2px solid transparent;
+  color: transparent;
+
+  &.clicked {
+    opacity: 0.6 !important;
+  }
+}
+
+
+.Hline {
+  width: 48px;
+  height: 5px;
+  background: linear-gradient(to right,
+          hsl(0, 100%, 50%),
+          hsl(30, 100%, 50%),
+          hsl(60, 100%, 50%),
+          hsl(120, 100%, 50%) /* ,
+    hsl(240, 100%, 50%),
+    hsl(270, 100%, 50%),
+    hsl(300, 100%, 50%) */
+  );
+}
+
+.Vline {
+  width: 5px;
+  height: 48px;
+  background: linear-gradient(to top,
+          hsl(0, 100%, 50%),
+          hsl(30, 100%, 50%),
+          hsl(60, 100%, 50%),
+          hsl(120, 100%, 50%) /* ,
+    hsl(240, 100%, 50%),
+    hsl(270, 100%, 50%),
+    hsl(300, 100%, 50%) */
+  );
+}
+
+@keyframes shake {
+  0% {
+    transform: scale(1) translateX(0);
+    box-shadow: none;
+  }
+  25% {
+    transform: scale(1.1) translateX(-3px) rotate(0.3deg);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.1) translateX(3px) rotate(-0.3deg);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+  }
+  75% {
+    transform: scale(1.1) translateX(-3px) rotate(0.3deg);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  }
+  100% {
+    transform: scale(1) translateX(0);
+    box-shadow: none;
+  }
+}
+
+@keyframes repeat {
+  0% {
+    transform: scale(1) translateX(0);
+    box-shadow: none;
+  }
+  25% {
+    transform: scale(1.04) translateX(-2px);
+    box-shadow: 0 0 10px rgba(88, 210, 77, 0.66);
+  }
+  50% {
+    transform: scale(1.05) translateX(2px);
+    box-shadow: 0 0 10px rgb(255, 217, 0);
+  }
+  75% {
+    transform: scale(1.04) translateX(-2px);
+    box-shadow: 0 0 10px rgba(20, 178, 225, 0.79);
+  }
+  100% {
+    transform: scale(1) translateX(0);
+    box-shadow: none;
+  }
+}
+
+.shake {
+  animation: shake 0.4s ease;
+}
+
+@keyframes plus {
+  0% {
+    transform: translateY(30px);
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(0px);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+
+.plusTime {
+  width: 400px;
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  top: 20px;
+  left: 33%;
+
+  img {
+    width: 30px;
+    //animation: plus 2s linear infinite;
+
+    &:nth-child(1) {
+      animation-delay: 0.5s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 0.1s;
+      width: 25px;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.2s;
+      width: 22px;
+    }
+
+    &:nth-child(4) {
+      animation-delay: 0.3s;
+      width: 20px;
+    }
+
+    &:nth-child(5) {
+      animation-delay: 0.1s;
+    }
+
+    &:nth-child(6) {
+      animation-delay: 0.4s;
+      width: 15px;
+    }
+
+    &:nth-child(7) {
+      animation-delay: 0.3s;
+      width: 18px;
+    }
+  }
+}
+
