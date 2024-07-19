@@ -1,0 +1,182 @@
+<!-- 21130506_Nguyễn_Ngọc_Quý_0931089737_DH21DTC -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Pikachu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <img src="imgPikachu/guide0.png" class="imgGuide" alt="">
+    <button id="infBtn">Tác giả</button>
+    <div class="opacity_bgk0">
+        <div id="infBoard" class="infBoard">
+            <h1>Thông tin cá nhân</h1>
+            <div class="subInfBoard">
+                <b>Họ và tên</b> : Nguyễn Ngọc Quý<br>
+                <b>Mã số sinh viên</b> : 21130506<br>
+                <b>Sinh ngày</b> : 03/11/2003<br>
+                <b>Lớp</b> : DH21DTC<br>
+                <b>Sở thích</b>: Học tập, thể thao,...<br>
+            </div>
+        </div>
+    </div>
+    <button id="soundButton">
+        <img id="volumeIcon" src="imgPikachu/volume.png" alt="Volume">
+    </button>
+    <div class="interface">
+        <button class="btn_start"><img class="firstIcon" src="imgPikachu/ball_select.png" alt=""> Chơi <img class="lastIcon"
+                src="imgPikachu/ball_select.png" alt=""></button>
+        <button class="btn_guide"><img class="firstIcon" src="imgPikachu/ball_select.png" alt=""> Hướng dẫn <img class="lastIcon"
+                src="imgPikachu/ball_select.png" alt=""></button>
+        <div class="opacity_bgk"></div>
+    </div>
+    <div class="header">
+        <div class="option">
+            <i class="fa-solid fa-pause" title="Tạm dừng"></i>
+            <i class="fa-solid fa-lightbulb" title="Gợi ý"></i>
+            <i class="fa-solid fa-rotate-left" title="Thay đổi"></i>
+            <i class="fa-solid fa-stopwatch" title="Thời gian"></i>
+        </div>
+        <span class="numHelp">5</span>
+        <span class="numReload">5</span>
+        <div class="timeline"></div>
+        <div class="right_header">
+            <span>Điểm:</span>
+            <span class="score">0</span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="board">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+    <div class="opacity_bgk1"></div>
+    <div class="board_pause">
+        <h1>Tạm dừng !</h1>
+        <div class="main_pause">
+            <i class="fa-solid fa-house" title="Trang chủ"></i>
+            <i class="fa-solid fa-play" title="Tiếp tục"></i>
+            <i class="fa-solid fa-book-tanakh" title="Hướng dẫn"></i>
+        </div>
+    </div>
+    <div class="board_lose">
+        <h1>Điểm số</h1>
+        <h1 class="loseScore">0</h1>
+        <i class="fa-solid fa-rotate-left"></i>
+    </div>
+    <div class="opacity_bgk2"></div>
+    <div class="board_win">
+        <h1>Chiến thắng</h1>
+        <i class="fa-solid fa-house" title="Trang chủ"></i>
+        <i class="fa-solid fa-rotate-left" title="Chơi lại"></i>
+        <img class="left" src="imgPikachu/bonusWinL.png" alt="">
+        <img class="right" src="imgPikachu/bonusWinR.png" alt="">
+        <img class="top" src="imgPikachu/bonusWinT.png" alt="">
+        <!-- <img class="bottom" src="imgPikachu/bonusWinB.png" alt=""> -->
+    </div>
+    <div class="board_level">
+        <h1>Cấp độ</h1>
+        <div class="levels">
+            <button id="1" class="btn btn-level1">Cấp độ 1</button>
+            <button id="2" class="btn btn-level2">Cấp độ 2</button>
+            <button id="3" class="btn btn-level3">Cấp độ 3</button>
+            <button id="4" class="btn btn-level4">Cấp độ 4</button>
+            <button id="5" class="btn btn-level5">Cấp độ 5</button>
+            <button id="6" class="btn btn-level6">Cấp độ 6</button>
+        </div>
+    </div>
+    <div class="board_guide">
+        <h1>Thông tin và hướng dẫn</h1>
+        <div class="main_guide">
+            <span><b>Trò chơi Pikachu</b><br>
+                <b>Thể loại</b> : Game trí tuệ<br>
+                <b>Nhiệm vụ trong game</b>:<br>
+                <p>Nối các thẻ pokemon giống nhau cho đến khi hết các thẻ bài</p>
+                <b>Qui tắc</b> :
+                <p>Người chơi có thể chọn những cấp độ khác nhau</p>
+                <p>Nếu chơi từ cấp độ 1 sẽ tự động qua màn khi hoàn thành màn hiện tại</p>
+                <p>Mỗi cấp độ sẽ được cộng 5 sự thay đổi <i class="fa-solid fa-rotate-left"></i> và 5 gợi ý <i
+                        class="fa-solid fa-lightbulb"></i></p>
+                <b>Cách chơi</b>: <p>Sử dụng chuột <img class="mouse" src="imgPikachu/mouse_left.png" alt=""> để thực hiện các thao
+                    tác trong trò
+                    chơi</p>
+            </span>
+            <img src="imgPikachu/case1.png" alt="">
+            <img src="imgPikachu/case2.png" alt="">
+            <img src="imgPikachu/case3.png" alt="">
+            <img src="imgPikachu/case4.png" alt="">
+        </div>
+        <button>Close</button>
+    </div>
+    <!-- <div class="board_rule">
+        <h1>Qui tắc</h1>
+        <div class="main_guide">
+            <span>
+                <b>Người chơi có thể chọn cấp độ khác nhau</b><br>
+                <b>Hoàn thành mỗi cấp độ sẽ quay lại cấp độ 1</b><br>
+                <b>Nếu chơi từ cấp độ 1 sẽ tự động qua màn khi hoàn thành màn hiện tại</b><br>
+                <b>Mỗi cấp độ sẽ được cộng 5 sự thay đổi <i class="fa-solid fa-rotate-left"></i> và 5 gợi ý <i class="fa-solid fa-lightbulb"></i></b><br>
+            </span>
+        </div>
+    </div> -->
+    <div class="board_guide_lv4">
+        <h1>Cấp độ 4</h1>
+        <div class="main_guide">
+            <span>
+                <b>- Từ cấp độ này khi chọn sai thẻ sẽ trừ thời gian</b><br>
+                <b>- Thẻ bài mới : <img src="imgPikachu/plusTime.png" alt=""> <br>
+                    Công dụng : sẽ được tăng thêm thời gian
+                    khi chọn đúng 2 thẻ bài này</b><br>
+            </span>
+        </div>
+    </div>
+    <div class="board_guide_lv5">
+        <h1>Cấp độ 5</h1>
+        <div class="main_guide">
+            <span>
+                <b>- Sau mỗi lần chọn đúng các lá bài sẽ bị xoay chiều</b><br>
+                <b>- Thời gian sẽ giảm nhanh hơn cấp độ trước và điểm số cũng sẽ được cộng nhiều hơn</b><br>
+            </span>
+        </div>
+    </div>
+    <div class="board_guide_lv6">
+        <h1>Cấp độ 6</h1>
+        <div class="main_guide">
+            <span>
+                <b>Cấp độ cuối</b><br>
+                <b>- Các lá bài sẽ bị xoay và sau 5 lần chọn đúng vị trí các lá bài sẽ bị thay đổi</b><br>
+                <b>Cố lến !</b><br>
+                <b>Bạn sẽ làm được !</b><br>
+            </span>
+        </div>
+    </div>
+    <div class="sound">
+        <audio id="myAudio" src="sound/Evert Z - Happy Go Lucky.mp3"></audio>
+        <audio src="sound/button.wav" class="soundBtn"></audio>
+        <audio src="sound/cell.wav" class="soundCell"></audio>
+        <audio src="sound/lose.wav" class="wrongChoose"></audio>
+        <audio src="sound/win.wav" class="trueChoose"></audio>
+        <audio src="sound/victory.mp3" class="victory"></audio>
+    </div>
+    <div class="plusTime">
+        <img src="imgPikachu/plus.png">
+        <img src="imgPikachu/plus.png">
+        <img src="imgPikachu/plus.png">
+        <img src="imgPikachu/plus.png">
+        <img src="imgPikachu/plus.png">
+        <img src="imgPikachu/plus.png">
+        <img src="imgPikachu/plus.png">
+    </div>
+    <script src="pikachu.js"></script>
+</body>
+
+</html>
